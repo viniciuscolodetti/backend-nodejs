@@ -25,6 +25,12 @@ class User {
   @Column()
   avatar: string;
 
+  @Column()
+  phone: string;
+
+  @Column()
+  whatsapp: string;
+
   @CreateDateColumn()
   created_at: Date;
 

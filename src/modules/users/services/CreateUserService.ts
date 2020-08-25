@@ -10,6 +10,8 @@ interface IRequest {
   name: string;
   email: string;
   password: string;
+  phone: string;
+  whatsapp?: string;
 }
 
 @injectable()
@@ -22,7 +24,13 @@ class CreateUserService {
     private hashProvider: IHashProvider,
   ) {}
 
-  public async execute({ name, email, password }: IRequest): Promise<User> {
+  public async execute({
+    name,
+    email,
+    password,
+    phone,
+    whatsapp,
+  }: IRequest): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
     if (checkUserExists) {
@@ -35,6 +43,8 @@ class CreateUserService {
       name,
       email,
       password: hashedPassword,
+      phone,
+      whatsapp,
     });
 
     return user;

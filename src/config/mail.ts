@@ -14,7 +14,7 @@ export default {
 
   defaults: {
     from: {
-      email: 'vinicius@bramagran.com.br',
+      email: 'vinicius.colodetti@gmail.com',
       name: 'Vinicius Colodetti',
     },
   },

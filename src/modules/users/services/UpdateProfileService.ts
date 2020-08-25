@@ -10,6 +10,8 @@ interface IRequest {
   user_id: string;
   name: string;
   email: string;
+  phone?: string;
+  whatsapp?: string;
   old_password?: string;
   password?: string;
 }
@@ -28,6 +30,8 @@ class UpdateProfileService {
     user_id,
     name,
     email,
+    phone,
+    whatsapp,
     old_password,
     password,
   }: IRequest): Promise<User> {
@@ -41,6 +45,14 @@ class UpdateProfileService {
 
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user_id) {
       throw new AppError('E-mail already in use.');
+    }
+
+    if (phone) {
+      user.phone = phone;
+    }
+
+    if (whatsapp) {
+      user.whatsapp = whatsapp;
     }
 
     user.name = name;
