@@ -6,9 +6,11 @@ import {
   JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 
 import User from '@modules/users/infra/typeorm/entities/User';
+import ServiceCategories from './ServiceCategories';
 
 @Entity('services')
 class Service {
@@ -34,11 +36,17 @@ class Service {
   updated_at: Date;
 
   @Column()
-  user_id: string;
+  provider_id: string;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'user_id' })
-  user: User;
+  @ManyToOne(() => User, { cascade: true, eager: true })
+  @JoinColumn({ name: 'provider_id' })
+  provider: User;
+
+  @OneToMany(() => ServiceCategories, category => category.service, {
+    cascade: true,
+    eager: true,
+  })
+  categories: ServiceCategories[];
 }
 
 export default Service;

@@ -7,6 +7,8 @@ import passwordRouter from '@modules/users/infra/http/routes/password.routes';
 
 import categoriesRouter from '@modules/categories/infra/http/routes/categories.routes';
 
+import servicesRouter from '@modules/services/infra/http/routes/services.routes';
+
 const routes = Router();
 
 routes.use('/users', usersRouter);
@@ -15,5 +17,7 @@ routes.use('/profile', profileRouter);
 routes.use('/password', passwordRouter);
 
 routes.use('/categories', categoriesRouter);
+
+routes.use('/services', servicesRouter);
 
 export default routes;

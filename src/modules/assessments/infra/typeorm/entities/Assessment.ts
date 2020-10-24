@@ -31,7 +31,7 @@ class Assessment {
   @Column()
   user_id: string;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { cascade: true, eager: true })
   @JoinColumn({ name: 'user_id' })
   user: User;
 

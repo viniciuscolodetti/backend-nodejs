@@ -18,7 +18,7 @@ export default class CreateServices1598318180995 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'user_id',
+            name: 'provider_id',
             type: 'uuid',
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
@@ -50,10 +50,10 @@ export default class CreateServices1598318180995 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: 'ServiceUser',
+            name: 'ServiceProvider',
             referencedTableName: 'users',
             referencedColumnNames: ['id'],
-            columnNames: ['user_id'],
+            columnNames: ['provider_id'],
             onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
           },

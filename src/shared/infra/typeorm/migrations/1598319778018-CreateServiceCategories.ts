@@ -27,6 +27,7 @@ export default class CreateServiceCategories1598319778018
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
+            isNullable: true,
           },
           {
             name: 'created_at',
@@ -45,7 +46,7 @@ export default class CreateServiceCategories1598319778018
             columnNames: ['service_id'],
             referencedTableName: 'services',
             referencedColumnNames: ['id'],
-            onDelete: 'SET NULL',
+            onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
           },
           {
